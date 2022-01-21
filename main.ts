@@ -95,7 +95,25 @@ function Load () {
     _️()
 }
 input.onButtonPressed(Button.A, function () {
-    basic.showArrow(input.compassHeading())
+    if (Compass <= 22.5) {
+        basic.showArrow(ArrowNames.North)
+    } else if (Compass <= 67.5) {
+        basic.showArrow(ArrowNames.NorthEast)
+    } else if (Compass <= 112.5) {
+        basic.showArrow(ArrowNames.East)
+    } else if (Compass <= 157.5) {
+        basic.showArrow(ArrowNames.SouthEast)
+    } else if (Compass <= 202.5) {
+        basic.showArrow(ArrowNames.South)
+    } else if (Compass <= 247.5) {
+        basic.showArrow(ArrowNames.SouthWest)
+    } else if (Compass <= 292.5) {
+        basic.showArrow(ArrowNames.West)
+    } else if (Compass <= 337.5) {
+        basic.showArrow(ArrowNames.NorthWest)
+    } else {
+        basic.showArrow(ArrowNames.North)
+    }
 })
 function startup () {
     basic.showString("Microsoft MakeCode for micro:bit and GamePlay Technologies Inc. presents")
@@ -161,5 +179,9 @@ function _️ () {
     basic.showIcon(IconNames.Yes)
     basic.clearScreen()
 }
+let Compass = 0
 startup()
 Load()
+loops.everyInterval(100, function () {
+    Compass = input.compassHeading()
+})
