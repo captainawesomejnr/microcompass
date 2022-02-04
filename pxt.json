@@ -1,5 +1,6 @@
 {
     "name": "microcompass",
+    "version": "1.0.2",
     "dependencies": {
         "core": "*",
         "microphone": "*"
